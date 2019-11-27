@@ -1,0 +1,15 @@
+/*
+神奇的翻转问题，理解了90度翻转是如何操作的
+在不新生成一个数组的情况下，先做镜像翻转，然后再每一行内做前后翻转
+*/
+class Solution {
+public:
+    void rotate(vector<vector<int>>& matrix) {
+        const int n = matrix.size();
+        for(int i=0; i<n; i++)
+            for(int j=i+1; j<n; j++)
+                swap(matrix[i][j], matrix[j][i]);
+        for(int i=0; i<n; i++)
+            reverse(matrix[i].begin(), matrix[i].end());
+    }
+};
