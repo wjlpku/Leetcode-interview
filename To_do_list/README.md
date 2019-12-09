@@ -10,3 +10,4 @@
   https://leetcode.com/discuss/interview-question/352459/
   https://leetcode.com/problems/sliding-window-maximum/
   not sure the solution, for non unique int in array A
+  https://www.cnblogs.com/zhenglw/p/10146373.html 单调队列
