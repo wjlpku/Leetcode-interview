@@ -11,3 +11,7 @@
   https://leetcode.com/problems/sliding-window-maximum/
   not sure the solution, for non unique int in array A
   https://www.cnblogs.com/zhenglw/p/10146373.html 单调队列
+  
+ 4. 二分
+  寻找两个有序数组的中位数 https://leetcode-cn.com/problems/median-of-two-sorted-arrays/
+
