@@ -1,0 +1,41 @@
+//矩阵快速幂解法
+class Solution {
+public:
+    const long long mod = 1000000007;
+    vector<vector<int>> mat_mul(vector<vector<int>> a, vector<vector<int>> b)
+    {
+        // vector<vector<int> > newOne(r, vector<int>(c, 0));
+        int ra = a.size(), ca = a[0].size(), rb = b.size(), cb = b[0].size();
+        vector<vector<int> > res(ra, vector<int>(cb, 0)); 
+        for (int k=0; k<ca; k++)
+        for (int i=0; i<ra; i++)
+        for (int j=0; j<cb; j++)
+        {
+            res[i][j] += ((a[i][k]%mod)*(b[k][j]%mod))%mod;
+        }
+        return res;
+    }
+
+    vector<vector<int>> quick_mat_pow(vector<vector<int>> a, int n)
+    {
+        vector<vector<int>> res = {{1, 0},{0, 1}};
+        vector<vector<int>> p = a;
+        int t = n;
+        for (; t>0; t>>=1)
+        {
+            if (t&1) res = mat_mul(res, p);
+            p = mat_mul(p, p);
+        }
+        return res;
+    }
+
+    int fib(int n) {
+        vector<vector<int>> f = {{1}, {0}};
+        if (n<2) {
+           if (n==0) return 0;
+           else return 1;
+        }
+        vector<vector<int>> base = {{1,1},{1,0}};
+        return mat_mul(quick_mat_pow(base, n-1), f)[0][0];
+    }
+};
